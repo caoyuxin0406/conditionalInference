@@ -1,0 +1,19 @@
+Package: conditionalInference
+Type: Package
+Title: Tools for Inferring the Treatment Effect after Testing for Instrument Strength
+Version: 0.1.0
+Imports:
+  stats,
+  CVXR,
+  MASS,
+  expm,
+  pracma,
+  pryr,
+  sets
+Author: Yuxin Cao
+Maintainer: Yuxin Cao <helen.cao6322@gmail.com>
+Description: Tools for inferring the treatment effect with instrument variables after testing for instrument strength in linear models. It can be used with Two-Stage Least-Squares (TSLS) and Anderson-Rubin (AR) test statistics.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
