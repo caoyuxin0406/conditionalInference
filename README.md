@@ -20,6 +20,4 @@ in linear models." arXiv preprint arXiv:2003.06723 (2020).
 Card, David. "Using geographic variation in college proximity to estimate the return to schooling." Working
 Paper 4483, National Bureau of Economic Research. (1993).
 
-Kang, Hyunseung, Yang Jiang, Qingyuan Zhao, and Dylan S. Small. "ivmodel: An R Package for In-
-ference and Sensitivity Analysis of Instrumental Variables Models with One Endogenous Variable."
-Observational Studies 7, no. 2 (2021): 1-24. doi:10.1353/obs.2021.0029.
+Kang, Hyunseung, Yang Jiang, Qingyuan Zhao, and Dylan S. Small. "ivmodel: An R Package for Inference and Sensitivity Analysis of Instrumental Variables Models with One Endogenous Variable." Observational Studies 7, no. 2 (2021): 1-24. doi:10.1353/obs.2021.0029.
