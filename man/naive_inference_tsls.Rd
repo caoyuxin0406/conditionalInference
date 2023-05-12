@@ -5,7 +5,9 @@
 \title{Naive Inference for TSLS Test Statistic}
 \usage{
 naive_inference_tsls(
-  binst,
+  Y,
+  D,
+  Z,
   pass_pre_test,
   parameter = NULL,
   Sigma_11 = 1,
@@ -14,20 +16,28 @@ naive_inference_tsls(
 )
 }
 \arguments{
-\item{binst}{A bigaussian instance object}
+\item{Y}{The outcome.}
 
-\item{pass_pre_test}{Binary indicator of whether passing the pre-test}
+\item{D}{The treatment.}
 
-\item{parameter}{Put beta_0 for null hypothesis}
+\item{Z}{The p instruments.}
 
-\item{Sigma_11}{Variance (i.e. estimate for sigma_11)}
+\item{pass_pre_test}{Binary indicator of whether passing the pre-test.}
 
-\item{compute_intervals}{Binary indicator of whether to compute confidence intervals}
+\item{parameter}{Put beta_0 for null hypothesis.}
 
-\item{level}{Significance level of F-test}
+\item{Sigma_11}{Variance (i.e. estimate for sigma_11).}
+
+\item{compute_intervals}{Binary indicator of whether to compute confidence intervals.}
+
+\item{level}{Significance level of F-test.}
 }
 \value{
-The p-value and confidence interval of TSLS test statistic.
+A naive inference for TSLS test statistic, which includes components:
+\item{tsls}{An TSLS estimate for the treatment effect.}
+\item{std}{An estimate of standard error of TSLS test statistic.}
+\item{pval}{The p-value of TSLS test statistic.}
+\item{interval}{The confidence interval of TSLS test statistic.}
 }
 \description{
 Give a simple inference of TSLS test statistic that does not take
@@ -37,16 +47,18 @@ instrument selection/strength test into account.
 # Naive inference for TSLS test statistic with confidence intervals
 # given passing the pre-test
 b <- bigaussian_instance(n=10, p=5, s=2, snr=3)
-naive_inference_tsls(binst=b,
+naive_inference_tsls(Y=b$Y,
+                     D=b$D,
+                     Z=b$Z,
                      pass_pre_test=TRUE,
                      compute_intervals=TRUE)
 
 # Naive inference for TSLS test statistic without confidence intervals
 # given passing the pre-test
-naive_inference_tsls(binst=b, pass_pre_test=TRUE)
+naive_inference_tsls(Y=b$Y, D=b$D, Z=b$Z, pass_pre_test=TRUE)
 
 # Naive inference for TSLS test statistic given not passing the pre-test
-naive_inference_tsls(binst=b, pass_pre_test=FALSE)
+naive_inference_tsls(Y=b$Y, D=b$D, Z=b$Z, pass_pre_test=FALSE)
 }
 \references{
 Bi, Nan & Kang, Hyunseung & Taylor, Jonathan. (2019). Inference After Selecting

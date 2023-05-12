@@ -9,38 +9,38 @@ group_lasso_iv_ar(
   D,
   Z,
   penalty = NULL,
-  ridge_term = NULL,
+  ridge_term = 0,
   randomizer_scale = NULL,
   perturb = NULL,
-  C0 = NULL
+  C0 = 10
 )
 }
 \arguments{
-\item{Y}{The outcome}
+\item{Y}{The outcome.}
 
-\item{D}{The treatment}
+\item{D}{The treatment.}
 
-\item{Z}{The p instruments}
+\item{Z}{The p instruments.}
 
-\item{penalty}{Lambda term in equation (13) and (15)}
+\item{penalty}{Lambda term in equation (13) and (15).}
 
-\item{ridge_term}{L2 regularization term (if applicable)}
+\item{ridge_term}{L2 regularization term (if applicable). Default to 0.}
 
-\item{randomizer_scale}{Standard deviation of random noise distribution}
+\item{randomizer_scale}{Standard deviation of random noise distribution.}
 
-\item{perturb}{Initial value of the randomization term (i.e. omega)}
+\item{perturb}{Initial value of the randomization term (i.e. omega).}
 
-\item{C0}{Threshold of pre-test on instrument strength}
+\item{C0}{Threshold of pre-test on instrument strength (default to 10).}
 }
 \value{
 A group lasso object, which is a list of:
-\item{data_part}{The S matrix in equation}
-\item{loglike}{Goodness of fit of data_part}
-\item{penalty}{Lambda term; the weights of penalty}
-\item{randomizer_scale}{Standard deviation of random noise}
-\item{Y}{The outcome}
-\item{D}{The treatment}
-\item{Z}{The p instruments}
+\item{data_part}{The S matrix in equation.}
+\item{loglike}{Goodness of fit of data_part.}
+\item{penalty}{Lambda term; the weights of penalty.}
+\item{randomizer_scale}{Standard deviation of random noise.}
+\item{Y}{The outcome.}
+\item{D}{The treatment.}
+\item{Z}{The p instruments.}
 }
 \description{
 Initialize outcome, treatment, and instrument matrices as well as

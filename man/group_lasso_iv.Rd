@@ -9,10 +9,10 @@ group_lasso_iv(
   D,
   Z,
   penalty = NULL,
-  ridge_term = NULL,
+  ridge_term = 0,
   randomizer_scale = NULL,
   perturb = NULL,
-  C0 = NULL
+  C0 = 10
 )
 }
 \arguments{
@@ -24,13 +24,13 @@ group_lasso_iv(
 
 \item{penalty}{Lambda term in the optimization model.}
 
-\item{ridge_term}{L2 regularization term (if applicable).}
+\item{ridge_term}{L2 regularization term (if applicable). Default to 0.}
 
 \item{randomizer_scale}{Standard deviation of random noise distribution.}
 
 \item{perturb}{Initial value of the randomization term (i.e. omega).}
 
-\item{C0}{Threshold of pre-test on instrument strength.}
+\item{C0}{Threshold of pre-test on instrument strength. Default to 10.}
 }
 \value{
 A group lasso object, which is a list of:

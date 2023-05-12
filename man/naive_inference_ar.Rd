@@ -5,7 +5,9 @@
 \title{Naive Inference for AR Test Statistic}
 \usage{
 naive_inference_ar(
-  binst,
+  Y,
+  D,
+  Z,
   pass_pre_test,
   parameter = NULL,
   Sigma_11 = 1,
@@ -16,24 +18,33 @@ naive_inference_ar(
 )
 }
 \arguments{
-\item{binst}{A bigaussian instance object}
+\item{Y}{The outcome.}
 
-\item{pass_pre_test}{Binary indicator of whether passing the pre-test}
+\item{D}{The treatment.}
 
-\item{parameter}{Put beta_0 for null hypothesis}
+\item{Z}{The p instruments.}
 
-\item{Sigma_11}{Variance (i.e. estimate for sigma_11)}
+\item{pass_pre_test}{Binary indicator of whether passing the pre-test.}
 
-\item{Sigma_12}{Covariance (i.e. estimate for sigma_12)}
+\item{parameter}{Put beta_0 for null hypothesis.}
 
-\item{Sigma_22}{Variance (i.e. estimate for sigma_22)}
+\item{Sigma_11}{Variance (i.e. estimate for sigma_11).}
 
-\item{compute_intervals}{Binary indicator of whether to compute confidence intervals}
+\item{Sigma_12}{Covariance (i.e. estimate for sigma_12).}
 
-\item{level}{Significance level of F-test}
+\item{Sigma_22}{Variance (i.e. estimate for sigma_22).}
+
+\item{compute_intervals}{Binary indicator of whether to compute confidence intervals.}
+
+\item{level}{Significance level of F-test.}
 }
 \value{
-The p-value and confidence interval of AR test statistic.
+A naive inference for AR test statistic, which includes components:
+\item{ar}{An AR estimate for the treatment effect.}
+\item{var_11}{An estimate of variance of AR test statistic.}
+\item{var_22}{An estimate of variance of AR test statistic.}
+\item{pval}{The p-value of AR test statistic.}
+\item{interval}{The confidence interval of AR test statistic.}
 }
 \description{
 Give a simple inference of AR test statistic that does not take
@@ -43,16 +54,18 @@ instrument selection/strength test into account.
 # Naive inference for AR test statistic with confidence intervals
 # given passing the pre-test
 b <- bigaussian_instance(n=10, p=5, s=2, snr=3)
-naive_inference_ar(binst=b,
+naive_inference_ar(Y=b$Y,
+                   D=b$D,
+                   Z=b$Z,
                    pass_pre_test=TRUE,
                    compute_intervals=TRUE)
 
 # Naive inference for AR test statistic without confidence intervals
 # given passing the pre-test
-naive_inference_ar(binst=b, pass_pre_test=TRUE)
+naive_inference_ar(Y=b$Y, D=b$D, Z=b$Z, pass_pre_test=TRUE)
 
 # Naive inference for AR test statistic given not passing the pre-test
-naive_inference_ar(binst=b, pass_pre_test=FALSE)
+naive_inference_ar(Y=b$Y, D=b$D, Z=b$Z, pass_pre_test=FALSE)
 }
 \references{
 Bi, Nan & Kang, Hyunseung & Taylor, Jonathan. (2019). Inference After Selecting
