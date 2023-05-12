@@ -1,6 +1,6 @@
 # conditionalInference
 
-conditionalInference is an R package for inferring the treatment effect with instrument variables after testing for instrument strength in linear models. The package includes a method to generate the dataset  for testing instrument strength and inferring treatment effect. It can also take the user-specified dataset to perform these tasks. The package contains methods to construct and fit the model, provide summary statistics, and estimate variance-covariance matrix. The package contains methods for TSLS statistic and the AR test. All methods in the software are outlined in Bi, Kang, and Taylor (2020).
+conditionalInference is an R package for inferring the treatment effect with instrument variables after testing for instrument strength in linear models. The package includes a method to generate the dataset  for testing instrument strength and inferring treatment effect. It can also take the user-specified dataset to perform these tasks. The package contains methods to construct and fit the model, provide summary statistics, and estimate variance-covariance matrix. The package contains methods for the TSLS statistic and the AR test. All methods in the software are outlined in Bi, Kang, and Taylor (2020).
 
 To install this package in R from GitHub, run the following commands:
 
@@ -9,6 +9,10 @@ install.packages("devtools")
 library(devtools) 
 install_github("caoyuxin0406/conditionalInference")
 ```
+
+## Replication Codes
+
+The replication R code can be found in `demo.R` and `demonstration_code.Rmd` files under the `demo` folder. Check the `demonstration_code.html` for instrument strength test and inference results with the TSLS statistic and the AR test. It als contains examples of using Card's data with our R package.
 
 ## References
 Bi, Nan, Hyunseung Kang, and Jonathan Taylor. "Inference after selecting plausibly valid instruments with
